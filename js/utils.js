@@ -1,3 +1,5 @@
+// рандомное положительное число из диапазона
+
 function getRandomPositiveInteger (a, b) {
   const lower = Math.ceil(Math.min(Math.abs(a), Math.abs(b)));
   const upper = Math.floor(Math.max(Math.abs(a), Math.abs(b)));
@@ -5,3 +7,11 @@ function getRandomPositiveInteger (a, b) {
   return Math.floor(result);
 }
 export {getRandomPositiveInteger};
+
+// проверка длины комментария
+
+function checkStringLength (string, length) {
+  return string.length <= length;
+}
+
+checkStringLength;
