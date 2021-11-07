@@ -3,7 +3,7 @@ import { similarPhotoDescriptions } from './data.js';
 const similarPhotoTemplate = document.querySelector('#picture')
   .content
   .querySelector('.picture');
-const similarPhotoElement = document.querySelector('.pictures')
+const similarPhotoElement = document.querySelector('.pictures');
 
 const similarMinis = similarPhotoDescriptions();
 

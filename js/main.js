@@ -3,3 +3,4 @@ import {similarPhotoElement} from './minis.js';
 
 similarPhotoDescriptions();
 
+similarPhotoElement;
