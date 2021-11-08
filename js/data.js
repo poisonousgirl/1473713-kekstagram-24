@@ -93,5 +93,4 @@ keysPhoto.forEach((key) => {
 //создание массива объектов описания фото
 const similarPhotoDescriptions = () => Array.from({length: SIMILAR_PHOTO_DESCRIPTION_COUNT}, createPhotoData);
 
-export {createPhotoData};
 export {similarPhotoDescriptions};
