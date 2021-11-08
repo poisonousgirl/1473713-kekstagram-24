@@ -1,4 +1,4 @@
-import { getRandomPositiveInteger } from './utils/get-random-positive-integer.js';
+import { getRandomPositiveInteger } from './utils.js';
 
 const URL_MIN_RANGE = 1;
 const URL_MAX_RANGE = 25;
@@ -71,7 +71,7 @@ const createPhotoData = () => {
   const commentsGen = Array.from({length: commentsArray[getRandomPositiveInteger(0, commentsArray.length - 1)]}, createCommentsData);
   return {
     id: unicID[0],
-    url: `photos/ ${unicPhotoID} .jpg`,
+    url: `photos/${unicPhotoID}.jpg`,
     description: DESCRIPTION[getRandomPositiveInteger(0, DESCRIPTION.length - 1)],
     likes: likesArray[getRandomPositiveInteger(0, likesArray.length - 1)],
     comments: commentsGen,
@@ -91,6 +91,7 @@ keysPhoto.forEach((key) => {
 });
 
 //создание массива объектов описания фото
-const similarPhotoDescriptions = Array.from({length: SIMILAR_PHOTO_DESCRIPTION_COUNT}, createPhotoData);
+const similarPhotoDescriptions = () => Array.from({length: SIMILAR_PHOTO_DESCRIPTION_COUNT}, createPhotoData);
 
+export {createPhotoData};
 export {similarPhotoDescriptions};
