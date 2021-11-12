@@ -1,6 +1,3 @@
-import { similarPhotoDescriptions } from './data.js';
-import {similarPhotoElement} from './minis.js';
+import {init} from './init.js';
 
-similarPhotoDescriptions();
-
-similarPhotoElement;
+init();

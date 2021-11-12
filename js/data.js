@@ -47,7 +47,7 @@ const createCommentsData = () => {
   const unicAvatar = avatarArray[getRandomPositiveInteger(0, avatarArray.length - 1)];
   return {
     id: unicID[0],
-    avatar: `img/avatar- ${unicAvatar} .svg`,
+    avatar: `img/avatar-${unicAvatar}.svg`,
     message: MESSAGE[getRandomPositiveInteger(0, MESSAGE.length - 1)],
     name: NAME[getRandomPositiveInteger(0, NAME.length - 1)],
   };
@@ -93,5 +93,4 @@ keysPhoto.forEach((key) => {
 //создание массива объектов описания фото
 const similarPhotoDescriptions = () => Array.from({length: SIMILAR_PHOTO_DESCRIPTION_COUNT}, createPhotoData);
 
-export {createPhotoData};
-export {similarPhotoDescriptions};
+export { similarPhotoDescriptions };
