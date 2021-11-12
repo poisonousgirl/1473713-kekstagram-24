@@ -23,4 +23,4 @@ const appendData = (similarMinis) => {
   similarPhotoElement.appendChild(similarListFragment);
 };
 
-export {appendData};
+export { appendData };

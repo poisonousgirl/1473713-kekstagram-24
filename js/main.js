@@ -1,6 +1,3 @@
-import {similarPhotoDescriptions} from './data.js';
-import {appendData} from './minis.js';
+import {init} from './init.js';
 
-const data = similarPhotoDescriptions();
-
-appendData(data);
+init();
