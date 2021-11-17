@@ -1,6 +1,7 @@
 // import {similarPhotoDescriptions} from './data.js';
 
 // const similarMinis = similarPhotoDescriptions();
+const similarPhotoElement = document.querySelector('.pictures');
 
 const appendData = (similarMinis) => {
 
@@ -8,12 +9,13 @@ const appendData = (similarMinis) => {
     .content
     .querySelector('.picture');
 
-  const similarPhotoElement = document.querySelector('.pictures');
 
   const similarListFragment = document.createDocumentFragment();
 
-  similarMinis.forEach(({url, likes, comments}) => {
+  similarMinis.forEach(({ url, likes, comments}) => {
     const pictureElement = similarPhotoTemplate.cloneNode(true);
+    const re = /\d+/g;
+    pictureElement.dataset.id = re.exec(url);
     pictureElement.querySelector('.picture__img').src = url;
     pictureElement.querySelector('.picture__likes').textContent = likes;
     pictureElement.querySelector('.picture__comments').textContent = comments.length;
@@ -23,4 +25,5 @@ const appendData = (similarMinis) => {
   similarPhotoElement.appendChild(similarListFragment);
 };
 
-export { appendData };
+export { appendData};
+export {similarPhotoElement};

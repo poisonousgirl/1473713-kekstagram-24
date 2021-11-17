@@ -1,3 +1,5 @@
+import { isEscapeKey, isEnterKey } from './utils.js';
+
 const body = document.body;
 const bigPicture = document.querySelector('.big-picture');
 const img = bigPicture.querySelector('.big-picture__img img');
@@ -9,18 +11,6 @@ const comments = bigPicture.querySelectorAll('.social__comment');
 const socialCaption = bigPicture.querySelector('.social__caption'); //описание фото
 const commentsLoader = bigPicture.querySelector('.comments-loader');
 const socialCommentCount = bigPicture.querySelector('.social__comment-count');
-
-// open
-
-const openBigPicture = () => {
-  bigPicture.classList.remove('hidden');
-  body.classList.add('modal-open');
-  socialCommentCount.hidden = true;
-  commentsLoader.hidden = true;
-};
-
-// переменная для миниатюр.addEventListener('click', openBigPicture());
-
 
 // create comments list
 
@@ -42,6 +32,49 @@ const createComments = (photoComments) => {
   return fragment;
 };
 
+// esc close
+const onDocumentEsc = (evt) => {
+  if (isEscapeKey(evt)) {
+    evt.preventDefault();
+    closeBigPicture();
+  }
+};
+
+// close
+// const onCloseButtonClick = () => closeBigPicture();
+
+const closeBigPicture = () => {
+  bigPicture.classList.add('hidden');
+  body.classList.remove('modal-open');
+
+  document.removeEventListener('keydown', onDocumentEsc);
+  closeButton.removeEventListener('click', closeBigPicture);
+};
+
+closeButton.addEventListener('click', () => {
+  closeBigPicture();
+});
+
+// open
+
+const openBigPicture = () => {
+  bigPicture.classList.remove('hidden');
+  body.classList.add('modal-open');
+  socialCommentCount.hidden = true;
+  commentsLoader.hidden = true;
+
+  document.addEventListener('keydown', onDocumentEsc);
+};
+
+//enter open
+
+// переменная для миниатюр.addEventListener('click', openBigPicture());
+const onDocumentEnter = () =>
+  document.addEventListener('keydown', (evt) => {
+    if (isEnterKey(evt)) {
+      openBigPicture();
+    }
+  });
 
 // create popup
 
@@ -55,20 +88,4 @@ const createPopupPicture = (picture) => {
   socialCaption.textContent = picture.description;
 };
 
-// close
-
-const closeBigPicture = () => {
-  bigPicture.classList.add('hidden');
-  body.classList.remove('modal-open');
-};
-
-closeButton.addEventListener('click', closeBigPicture());
-
-// esc close
-document.addEventListener('keydown', (evt) => {
-  if (evt.key === 'Escape' || evt.key === 'Esc') {
-    closeBigPicture();
-  }
-});
-
-export {createPopupPicture};
+export { createPopupPicture };

@@ -7,7 +7,7 @@ const data = similarPhotoDescriptions();
 
 const init = () => {
   appendData(data);
-  createPopupPicture(data[getRandomPositiveInteger(0, data.length - 1)]);
+  // createPopupPicture(data[getRandomPositiveInteger(0, data.length - 1)]);
 };
 
 export { init };
